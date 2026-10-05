@@ -10,6 +10,354 @@
 </head>
 
 <body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">✈</span>
+            <span>ViajePlus</span>
+        </div>
+        <nav class="nav">
+            <a href="#inicio">Inicio</a>
+            <a href="#explorar">Explorar</a>
+            <a href="#milista">Mi lista</a>
+        </nav>
+        <div class="buscador">
+            <input
+                type="text"
+                id="buscarDestino"
+                placeholder="Buscar destino...">
+            <button id="btnBuscar">
+                Buscar
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="inicio">
+
+            <div class="hero-texto">
+
+                <p class="subtitulo">
+                    VIAJEPLUS
+                </p>
+
+                <h1>
+                    Explora el mundo
+                </h1>
+
+                <p>
+                    Descubre nuevos destinos, experiencias
+                    inolvidables y lugares que siempre
+                    has querido conocer.
+                </p>
+
+                <div class="hero-botones">
+
+                    <a href="#destinos" class="btn btn-principal">
+                        Ver destinos
+                    </a>
+
+                    <a href="#contacto" class="btn btn-secundario">
+                        Contactarnos
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-imagen">
+
+                <div class="imagen-placeholder">
+                    <span>IMAGEN</span>
+                    <strong>Destino turístico</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DESTINOS -->
+        <section class="destinos-section" id="destinos">
+
+            <div class="section-header">
+
+                <div>
+                    <p class="subtitulo">
+                        DESCUBRE
+                    </p>
+
+                    <h2>
+                        Destinos destacados
+                    </h2>
+                </div>
+
+                <p>
+                    Encuentra inspiración para tu próximo viaje.
+                </p>
+
+            </div>
+
+
+            <div class="destinos">
+
+                <!-- TARJETA 1 -->
+                <article class="destino-card">
+
+                    <div class="card-imagen torres">
+                        <span>IMAGEN</span>
+                    </div>
+
+                    <div class="card-contenido">
+
+                        <p class="pais">
+                            Chile
+                        </p>
+
+                        <h3>
+                            Torres del Paine
+                        </h3>
+
+                        <p class="descripcion">
+                            Naturaleza, montañas y paisajes
+                            únicos en la Patagonia.
+                        </p>
+
+                        <p class="extra-info oculto">
+                            Un destino ideal para trekking,
+                            fotografía y aventura.
+                        </p>
+
+                        <button class="btn-ver-mas">
+                            Ver más
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TARJETA 2 -->
+                <article class="destino-card">
+
+                    <div class="card-imagen cusco">
+                        <span>IMAGEN</span>
+                    </div>
+
+                    <div class="card-contenido">
+
+                        <p class="pais">
+                            Perú
+                        </p>
+
+                        <h3>
+                            Cusco
+                        </h3>
+
+                        <p class="descripcion">
+                            Cultura, historia y arquitectura
+                            en el corazón de los Andes.
+                        </p>
+
+                        <p class="extra-info oculto">
+                            Una ciudad perfecta para conocer
+                            historia, gastronomía y tradiciones.
+                        </p>
+
+                        <button class="btn-ver-mas">
+                            Ver más
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TARJETA 3 -->
+                <article class="destino-card">
+
+                    <div class="card-imagen cancun">
+                        <span>IMAGEN</span>
+                    </div>
+
+                    <div class="card-contenido">
+
+                        <p class="pais">
+                            México
+                        </p>
+
+                        <h3>
+                            Cancún
+                        </h3>
+
+                        <p class="descripcion">
+                            Playas, naturaleza y descanso
+                            frente al mar.
+                        </p>
+
+                        <p class="extra-info oculto">
+                            Excelente alternativa para disfrutar
+                            del Caribe y sus playas.
+                        </p>
+
+                        <button class="btn-ver-mas">
+                            Ver más
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TARJETA 4 -->
+                <article class="destino-card">
+
+                    <div class="card-imagen madrid">
+                        <span>IMAGEN</span>
+                    </div>
+
+                    <div class="card-contenido">
+
+                        <p class="pais">
+                            España
+                        </p>
+
+                        <h3>
+                            Madrid
+                        </h3>
+
+                        <p class="descripcion">
+                            Cultura, gastronomía y vida urbana.
+                        </p>
+
+                        <p class="extra-info oculto">
+                            Museos, plazas, gastronomía y una
+                            gran variedad de actividades.
+                        </p>
+
+                        <button class="btn-ver-mas">
+                            Ver más
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <p
+                id="mensajeBusqueda"
+                class="mensaje-busqueda"
+            ></p>
+
+        </section>
+
+
+        <!-- NOSOTROS -->
+        <section class="info-section" id="nosotros">
+
+            <div class="info-bloque">
+
+                <p class="subtitulo">
+                    VIAJEPLUS
+                </p>
+
+                <h2>
+                    Viajamos contigo
+                </h2>
+
+                <p>
+                    Nuestro objetivo es ayudarte a descubrir
+                    nuevos lugares y planificar experiencias
+                    memorables.
+                </p>
+
+            </div>
+
+            <div class="beneficios">
+
+                <div class="beneficio">
+                    <span>01</span>
+                    <h3>Destinos</h3>
+                    <p>
+                        Diferentes alternativas para explorar.
+                    </p>
+                </div>
+
+                <div class="beneficio">
+                    <span>02</span>
+                    <h3>Experiencias</h3>
+                    <p>
+                        Ideas para disfrutar cada viaje.
+                    </p>
+                </div>
+
+                <div class="beneficio">
+                    <span>03</span>
+                    <h3>Planificación</h3>
+                    <p>
+                        Información para organizar tu aventura.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contacto">
+
+        <div class="footer-contenido">
+
+            <div>
+                <h2>
+                    ViajePlus
+                </h2>
+
+                <p>
+                    Explora. Descubre. Viaja.
+                </p>
+            </div>
+
+            <div>
+                <h3>
+                    Contacto
+                </h3>
+
+                <p>
+                    contacto@viajeplus.cl
+                </p>
+
+                <p>
+                    +56 9 1234 5678
+                </p>
+            </div>
+
+            <div>
+                <h3>
+                    Redes sociales
+                </h3>
+
+                <p>
+                    Instagram · Facebook · TikTok
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 ViajePlus
+        </div>
+
+    </footer>
 
     <script src="static/js/script.js"></script>
 
