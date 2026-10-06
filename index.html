@@ -11,21 +11,23 @@
 <body>
     <!-- HEADER -->
     <header class="header">
-        <div class="logo">
-            <img src="static/images/VideoStream.png" alt="VideoStream" class="logo-img">
-        </div>
-        <nav class="nav">
-            <a href="#inicio" class="activo">Inicio</a>
-            <a href="#explorar">Explorar</a>
-            <a href="#milista">Mi lista</a>
-        </nav>
-        <div class="buscador">
-            <input type="text" id="buscar" placeholder="">
-            <button id="btnBuscar">
-                <img src="static/icons/icon-2.png" alt="Buscar" class="img-buscar">
-            </button>
+        <div class="main-nav">
+            <div class="logo">
+                <img src="static/images/VideoStream.png" alt="VideoStream" class="logo-img">
+            </div>
+            <nav class="nav">
+                <a href="#inicio" class="activo">Inicio</a>
+                <a href="#explorar">Explorar</a>
+                <a href="#milista">Mi lista</a>
+            </nav>
         </div>
         <div class="header-iconos">
+            <div class="buscador">
+                <input type="text" id="buscar" placeholder="">
+                <button id="btnBuscar">
+                    <img src="static/icons/icon-2.png" alt="Buscar" class="img-buscar">
+                </button>
+            </div>
             <div class="campana">
                 <img src="static/icons/icon-3.png" alt="Notificaciones" class="img-campana">
             </div>
@@ -43,16 +45,7 @@
                 <!-- REPRODUCTOR DE VIDEO -->
                 <div class="c-video-player">
                     <div class="video-placeholder">
-                        <div class="video-controls">
-                            <button class="btn-control">►</button>
-                            <span class="tiempo">0:00 / 4:32</span>
-                            <div class="barra-progreso">
-                                <div class="progreso"></div>
-                            </div>
-                            <button class="btn-control">🔊</button>
-                            <button class="btn-control">⚙</button>
-                            <button class="btn-control">⛶</button>
-                        </div>
+                        <video src="static/videos/Las más hermosas Lagunas y Montañas.mp4" controls></video>
                     </div>
                 </div>
 
@@ -62,7 +55,6 @@
                     <div class="row-info-acciones">
                         <p class="video-stats">95 mil visualizaciones • 10 abr 2024</p>
                         <div class="c-acciones">
-                            <!-- ID AGREGADOS AQUI -->
                             <button class="btn-accion" id="btnLike">
                                 <img src="static/icons/icon-7.png" alt="Like" class="img-accion">
                                 <span id="txtLike">4,8 K</span>
@@ -72,11 +64,11 @@
                                 <span>120</span>
                             </button>
                             <button class="btn-accion">
-                                <img src="static/icons/icon-7.png" alt="Compartir" class="img-accion">
+                                <img src="static/icons/icon-11.png" alt="Compartir" class="img-accion">
                                 <span>Compartir</span>
                             </button>
                             <button class="btn-accion">
-                                <img src="static/icons/icon-5.png" alt="Añadir" class="img-accion">
+                                <img src="static/icons/icon-6.png" alt="Añadir" class="img-accion">
                                 <span>Añadir a la cola</span>
                             </button>
                             <button class="btn-accion btn-puntos">...</button>
@@ -92,7 +84,6 @@
                         <div class="avatar-canal"></div>
                         <div class="canal-texto">
                             <strong class="nombre-canal">VideoStream</strong>
-                            <!-- ID AGREGADOS AQUI -->
                             <p class="suscriptores" id="txtSuscriptores">1,2 M de suscriptores</p>
                         </div>
                     </div>
@@ -106,46 +97,6 @@
                         Consejos, rutas y paisajes increíbles.
                     </p>
                     <button class="btn-mostrar-mas" id="btnMostrarMas">Mostrar más ▼</button>
-                </div>
-
-                <hr class="divisor">
-
-                <!-- MAS VIDEOS -->
-                <div class="c-mas-videos">
-                    <h2>Más videos</h2>
-                    <div class="carrusel-contenedor">
-                        <button class="flecha-carrusel">◄</button>
-                        <div class="carrusel-videos">
-                            <div class="tarjeta-video">
-                                <div class="miniatura-placeholder">
-                                    <span class="duracion-video">6:15</span>
-                                </div>
-                                <h4>Rutas de trekking</h4>
-                                <p>80 mil visualizaciones</p>
-                            </div>
-                            <div class="tarjeta-video">
-                                <div class="miniatura-placeholder">
-                                    <span class="duracion-video">4:32</span>
-                                </div>
-                                <h4>Lagos y montañas</h4>
-                                <p>95 mil visualizaciones</p>
-                            </div>
-                            <div class="tarjeta-video">
-                                <div class="miniatura-placeholder">
-                                    <span class="duracion-video">3:50</span>
-                                </div>
-                                <h4>Fauna patagónica</h4>
-                                <p>60 mil visualizaciones</p>
-                            </div>
-                            <div class="tarjeta-video">
-                                <div class="miniatura-placeholder">
-                                    <span class="duracion-video">4:36</span>
-                                </div>
-                                <h4>Consejos para viajar</h4>
-                                <p>110 mil visualizaciones</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -167,7 +118,9 @@
                                 <p class="canal-item">VideoStream</p>
                                 <p class="vistas-item">120 mil visualizaciones</p>
                             </div>
-                            <button class="btn-eliminar">✕</button>
+                            <button class="btn-eliminar">
+                                <img src="static/icons/icon-5.png" alt="X" class="X">
+                            </button>
                         </div>
                         <div class="item-sidebar">
                             <div class="miniatura-sidebar">
@@ -178,7 +131,9 @@
                                 <p class="canal-item">VideoStream</p>
                                 <p class="vistas-item">98 mil visualizaciones</p>
                             </div>
-                            <button class="btn-eliminar">✕</button>
+                            <button class="btn-eliminar">
+                                <img src="static/icons/icon-5.png" alt="X" class="X">
+                            </button>
                         </div>
                         <div class="item-sidebar">
                             <div class="miniatura-sidebar">
@@ -189,7 +144,9 @@
                                 <p class="canal-item">VideoStream</p>
                                 <p class="vistas-item">210 mil visualizaciones</p>
                             </div>
-                            <button class="btn-eliminar">✕</button>
+                            <button class="btn-eliminar">
+                                <img src="static/icons/icon-5.png" alt="X" class="X">
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -237,9 +194,47 @@
                 </div>
             </div>
         </section>
+
+        <!-- MAS VIDEOS (REUBICADO ABAJO DE LA COLA Y RECOMENDADOS) -->
+        <div class="c-mas-videos">
+            <h2>Más videos</h2>
+            <div class="carrusel-contenedor">
+                <button class="flecha-carrusel">◄</button>
+                <div class="carrusel-videos">
+                    <div class="tarjeta-video">
+                        <div class="miniatura-placeholder">
+                            <span class="duracion-video">6:15</span>
+                        </div>
+                        <h4>Rutas de trekking</h4>
+                        <p>80 mil visualizaciones</p>
+                    </div>
+                    <div class="tarjeta-video">
+                        <div class="miniatura-placeholder">
+                            <span class="duracion-video">4:32</span>
+                        </div>
+                        <h4>Lagos y montañas</h4>
+                        <p>95 mil visualizaciones</p>
+                    </div>
+                    <div class="tarjeta-video">
+                        <div class="miniatura-placeholder">
+                            <span class="duracion-video">3:50</span>
+                        </div>
+                        <h4>Fauna patagónica</h4>
+                        <p>60 mil visualizaciones</p>
+                    </div>
+                    <div class="tarjeta-video">
+                        <div class="miniatura-placeholder">
+                            <span class="duracion-video">4:36</span>
+                        </div>
+                        <h4>Consejos para viajar</h4>
+                        <p>110 mil visualizaciones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!-- ALERTA / NOTIFICACION (OCULTA POR DEFECTO) -->
+    <!-- ALERTA / NOTIFICACION -->
     <div id="alerta-cola" class="alerta">
         <span class="alerta-texto">Video añadido a la cola</span>
         <button id="btnCerrarAlerta" class="btn-cerrar-alerta">X</button>

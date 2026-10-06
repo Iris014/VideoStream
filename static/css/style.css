@@ -56,8 +56,16 @@ input {
     border-bottom: 1px solid #ddd;
 }
 
+.main-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .logo-img {
-    height: 28px;
+    height: 50px;
 }
 
 .nav {
@@ -82,20 +90,20 @@ input {
 
 .buscador {
     display: flex;
+    justify-content: center;
     align-items: center;
     flex: 1 1 300px;
     max-width: 500px;
 }
 
 .buscador input {
-    width: 100%;
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-radius: 20px 0 0 20px;
 }
 
 .buscador button {
-    padding: 6px 15px;
+    padding: 9px 15px;
     border: 1px solid #ccc;
     border-left: none;
     border-radius: 0 20px 20px 0;
@@ -113,7 +121,7 @@ input {
 .header-iconos {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 33px;
 }
 
 .img-campana,
@@ -321,6 +329,10 @@ main {
    CARRUSEL MÁS VIDEOS
 ================================ */
 
+.c-mas-videos{
+    margin-top: 2%;
+}
+
 .c-mas-videos h2 {
     font-size: 1.1rem;
     margin-bottom: 12px;
@@ -348,7 +360,7 @@ main {
 }
 
 .tarjeta-video {
-    flex: 1 1 130px;
+    flex: 1 1 22.5%;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -467,6 +479,10 @@ main {
     padding: 2px 6px;
 }
 
+.X{
+    height: 25px;
+}
+
 .btn-agregar {
     border: 1px solid var(--negro);
     border-radius: 4px;
@@ -502,18 +518,13 @@ main {
     color: var(--blanco);
     font-size: 2rem;
     opacity: 0;
-    transition: opacity 0.2s;
+    transition: 0.2s;
     z-index: 2;
 }
 
-/* Clase inyectada por JS al hacer hover */
-.reproduciendo::before {
-    opacity: 1;
-}
-
 .reproduciendo {
-    background-image: none !important;
-    background-color: var(--negro) !important;
+    background-image: none;
+    background-color: var(--negro);
 }
 
 /* ================================
