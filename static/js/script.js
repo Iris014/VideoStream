@@ -1,111 +1,121 @@
 // ========================================
-// BOTONES "VER MÁS"
+// 1. SUMAR "ME GUSTA"
 // ========================================
+const btnLike = document.getElementById("btnLike");
+const txtLike = document.getElementById("txtLike");
+let likeActivo = false;
 
-const botonesVerMas = document.querySelectorAll(".btn-ver-mas");
+if (btnLike && txtLike) {
+    btnLike.addEventListener("click", function () {
+        likeActivo = !likeActivo; // Alternar estado
 
-botonesVerMas.forEach(function (boton) {
+        if (likeActivo) {
+            txtLike.textContent = "4,9 K";
+            btnLike.className = "btn-accion like-activo"; // Reemplazo de classList
+        } else {
+            txtLike.textContent = "4,8 K";
+            btnLike.className = "btn-accion"; // Reemplazo de classList
+        }
+    });
+}
 
+
+// ========================================
+// 2. BOTÓN SUSCRIBIRSE
+// ========================================
+const btnSuscribirse = document.getElementById("btnSuscribirse");
+const txtSuscriptores = document.getElementById("txtSuscriptores");
+let estaSuscrito = false;
+
+if (btnSuscribirse && txtSuscriptores) {
+    btnSuscribirse.addEventListener("click", function () {
+        estaSuscrito = !estaSuscrito;
+
+        if (estaSuscrito) {
+            btnSuscribirse.textContent = "Suscrito";
+            btnSuscribirse.classList.add("suscrito");
+            txtSuscriptores.textContent = "1,2 M de suscriptores";
+        } else {
+            btnSuscribirse.textContent = "Suscribirse";
+            btnSuscribirse.classList.remove("suscrito");
+            txtSuscriptores.textContent = "1,3 M de suscriptores";
+        }
+    });
+}
+
+
+// ========================================
+// 3. AÑADIR A LA COLA DE REPRODUCCIÓN
+// ========================================
+const botonesAgregar = document.querySelectorAll(".btn-agregar");
+const alertaCola = document.getElementById("alerta-cola");
+const btnCerrarAlerta = document.getElementById("btnCerrarAlerta");
+let timeoutAlerta;
+
+// Función para mostrar la alerta
+function mostrarAlerta() {
+    if (alertaCola) {
+        alertaCola.classList.add("mostrar");
+        
+        // Limpiar timeout anterior si se clica rápido varias veces
+        clearTimeout(timeoutAlerta);
+        
+        // Ocultar alerta después de 3 segundos
+        timeoutAlerta = setTimeout(function() {
+            alertaCola.classList.remove("mostrar");
+        }, 3000);
+    }
+}
+
+// Cerrar alerta manual
+if (btnCerrarAlerta) {
+    btnCerrarAlerta.addEventListener("click", function() {
+        alertaCola.classList.remove("mostrar");
+    });
+}
+
+// Logica de añadir items
+botonesAgregar.forEach(function (boton) {
     boton.addEventListener("click", function () {
+        const itemRecomendado = boton.closest(".item-recomendado");
+        const listaCola = document.getElementById("listaCola");
 
-        const card = boton.closest(".destino-card");
+        if (itemRecomendado && listaCola) {
+            // Clonar el nodo
+            const nuevoItem = itemRecomendado.cloneNode(true);
+            nuevoItem.classList.remove("item-recomendado");
 
-        const informacion = card.querySelector(".extra-info");
+            // Cambiar el botón de agregar por el de eliminar
+            const btnAccion = nuevoItem.querySelector(".btn-agregar");
+            btnAccion.textContent = "✕";
+            btnAccion.className = "btn-eliminar";
 
-        if (informacion.classList.contains("oculto")) {
+            // Evento para poder eliminar este nuevo nodo después
+            btnAccion.addEventListener("click", function () {
+                nuevoItem.style.display = "none";
+            });
 
-            informacion.classList.remove("oculto");
-
-            boton.textContent = "Ver menos";
-
-        } else {
-
-            informacion.classList.add("oculto");
-
-            boton.textContent = "Ver más";
+            // Insertar en la lista y mostrar mensaje
+            listaCola.appendChild(nuevoItem);
+            mostrarAlerta();
         }
-
     });
-
 });
 
 
 // ========================================
-// BUSCADOR
+// 4. REPRODUCIR AL PASAR EL MOUSE (HOVER)
 // ========================================
+const miniaturas = document.querySelectorAll(".miniatura-placeholder, .miniatura-sidebar");
 
-const inputBuscar = document.getElementById("buscarDestino");
-const botonBuscar = document.getElementById("btnBuscar");
-
-const mensajeBusqueda = document.getElementById("mensajeBusqueda");
-
-const tarjetas = document.querySelectorAll(".destino-card");
-
-
-botonBuscar.addEventListener("click", function () {
-
-    const texto = inputBuscar.value.trim().toLowerCase();
-
-    let encontrados = 0;
-
-
-    tarjetas.forEach(function (tarjeta) {
-
-        const titulo = tarjeta
-            .querySelector("h3")
-            .textContent
-            .toLowerCase();
-
-        const pais = tarjeta
-            .querySelector(".pais")
-            .textContent
-            .toLowerCase();
-
-
-        if (
-            texto === "" ||
-            titulo.includes(texto) ||
-            pais.includes(texto)
-        ) {
-
-            tarjeta.style.display = "flex";
-
-            encontrados++;
-
-        } else {
-
-            tarjeta.style.display = "none";
-
-        }
-
+miniaturas.forEach(function (miniatura) {
+    miniatura.addEventListener("onmouseover", function () {
+        // Agrega una clase que mediante CSS oculta la trama gris y muestra un icono de play
+        miniatura.classList.add("reproduciendo"); 
     });
 
-
-    if (texto === "") {
-
-        mensajeBusqueda.textContent =
-            "Mostrando todos los destinos.";
-
-    } else {
-
-        mensajeBusqueda.textContent =
-            `Destinos encontrados: ${encontrados}`;
-
-    }
-
-});
-
-
-// ========================================
-// BUSCAR AL PRESIONAR ENTER
-// ========================================
-
-inputBuscar.addEventListener("keydown", function (evento) {
-
-    if (evento.key === "Enter") {
-
-        botonBuscar.click();
-
-    }
-
+    miniatura.addEventListener("onmouseout", function () {
+        // Retira la clase para "pausar"
+        miniatura.classList.remove("reproduciendo");
+    });
 });
