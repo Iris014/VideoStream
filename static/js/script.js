@@ -80,7 +80,7 @@ botonesAgregar.forEach(function (boton) {
             nuevoItem.classList.remove("item-recomendado");
 
             const btnAccion = nuevoItem.querySelector(".btn-agregar");
-            btnAccion.image.src = "static/icons/icon-6.png";
+            btnAccion.innerHTML = '<img src="static/icons/icon-5.png" alt="X" class="X">';
             btnAccion.className = "btn-eliminar";
 
             btnAccion.addEventListener("click", function () {
