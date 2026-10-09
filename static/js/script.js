@@ -7,14 +7,14 @@ let likeActivo = false;
 
 if (btnLike && txtLike) {
     btnLike.addEventListener("click", function () {
-        likeActivo = !likeActivo; // Alternar estado
+        likeActivo = !likeActivo;
 
         if (likeActivo) {
             txtLike.textContent = "4,9 K";
-            btnLike.className = "btn-accion like-activo"; // Reemplazo de classList
+            btnLike.className = "btn-accion like-activo";
         } else {
             txtLike.textContent = "4,8 K";
-            btnLike.className = "btn-accion"; // Reemplazo de classList
+            btnLike.className = "btn-accion";
         }
     });
 }
@@ -52,50 +52,41 @@ const alertaCola = document.getElementById("alerta-cola");
 const btnCerrarAlerta = document.getElementById("btnCerrarAlerta");
 let timeoutAlerta;
 
-// Función para mostrar la alerta
 function mostrarAlerta() {
     if (alertaCola) {
         alertaCola.classList.add("mostrar");
         
-        // Limpiar timeout anterior si se clica rápido varias veces
         clearTimeout(timeoutAlerta);
         
-        // Ocultar alerta después de 3 segundos
         timeoutAlerta = setTimeout(function() {
             alertaCola.classList.remove("mostrar");
         }, 3000);
     }
 }
 
-// Cerrar alerta manual
 if (btnCerrarAlerta) {
     btnCerrarAlerta.addEventListener("click", function() {
         alertaCola.classList.remove("mostrar");
     });
 }
 
-// Logica de añadir items
 botonesAgregar.forEach(function (boton) {
     boton.addEventListener("click", function () {
         const itemRecomendado = boton.closest(".item-recomendado");
         const listaCola = document.getElementById("listaCola");
 
         if (itemRecomendado && listaCola) {
-            // Clonar el nodo
             const nuevoItem = itemRecomendado.cloneNode(true);
             nuevoItem.classList.remove("item-recomendado");
 
-            // Cambiar el botón de agregar por el de eliminar
             const btnAccion = nuevoItem.querySelector(".btn-agregar");
-            btnAccion.textContent = "✕";
+            btnAccion.image.src = "static/icons/icon-6.png";
             btnAccion.className = "btn-eliminar";
 
-            // Evento para poder eliminar este nuevo nodo después
             btnAccion.addEventListener("click", function () {
                 nuevoItem.style.display = "none";
             });
 
-            // Insertar en la lista y mostrar mensaje
             listaCola.appendChild(nuevoItem);
             mostrarAlerta();
         }
@@ -104,18 +95,27 @@ botonesAgregar.forEach(function (boton) {
 
 
 // ========================================
-// 4. REPRODUCIR AL PASAR EL MOUSE (HOVER)
+// 4. REPRODUCIR AL PASAR EL MOUSE (onmouseover / onmouseout)
 // ========================================
 const miniaturas = document.querySelectorAll(".miniatura-placeholder, .miniatura-sidebar");
 
 miniaturas.forEach(function (miniatura) {
-    miniatura.addEventListener("onmouseover", function () {
-        // Agrega una clase que mediante CSS oculta la trama gris y muestra un icono de play
-        miniatura.classList.add("reproduciendo"); 
-    });
+    const video = miniatura.querySelector("video");
 
-    miniatura.addEventListener("onmouseout", function () {
-        // Retira la clase para "pausar"
+    // Asignación directa del evento onmouseover
+    miniatura.onmouseover = function () {
+        miniatura.classList.add("reproduciendo");
+        if (video) {
+            video.play();
+        }
+    };
+
+    // Asignación directa del evento onmouseout
+    miniatura.onmouseout = function () {
         miniatura.classList.remove("reproduciendo");
-    });
+        if (video) {
+            video.pause();
+            video.currentTime = 0;
+        }
+    };
 });
